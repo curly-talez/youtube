@@ -1,5 +1,11 @@
+import Sidebar from "./Sidebar";
+
 const Body = () => {
-  return <h1>Body Component</h1>;
+  return (
+    <div>
+      <Sidebar />
+    </div>
+  );
 };
 
 export default Body;
