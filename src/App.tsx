@@ -1,12 +1,14 @@
-import './App.css'
+import "./App.css";
+import Head from "./components/Head";
+import Body from "./components/Body";
 
 function App() {
-
   return (
     <>
-      <h1>Youtube</h1>
+      <Head />
+      <Body />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
