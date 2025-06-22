@@ -10,7 +10,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="shadow-lg p-5 shadow-gray-200 w-50">
+    <div className="shadow-lg p-5 shadow-gray-200">
       <ul className="pt-5 ">
         <li>Home</li>
         <li>Shorts</li>

@@ -1,4 +1,5 @@
 import ButtonFilter from "./ButtonFilter";
+import VideoContainer from "./VideoContainer";
 
 const MainContainer = () => {
   const btnList = [
@@ -18,11 +19,10 @@ const MainContainer = () => {
     <div className="flex flex-col my-8 mx-2">
       <div>
         {btnList.map((btn) => (
-          <ButtonFilter name={btn} />
+          <ButtonFilter name={btn} key={btn} />
         ))}
       </div>
-
-      <h1>Main container</h1>
+      <VideoContainer />
     </div>
   );
 };
