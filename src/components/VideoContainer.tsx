@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { YOUTUBE_VIDEO_URL } from "../utils/constants";
 import VideoCard from "./VideoCard";
+import { Link } from "react-router";
+import type { VideoModel } from "../models/videoModel";
 
 const VideoContainer = () => {
-  const [videos, setVideos] = useState([]);
+  const [videos, setVideos] = useState<VideoModel[]>([]);
 
   useEffect(() => {
     getVideos();
@@ -13,7 +15,9 @@ const VideoContainer = () => {
     try {
       const data = await fetch(YOUTUBE_VIDEO_URL);
       const json = await data.json();
-      setVideos(json.items);
+      const items: VideoModel[] = json.items;
+      setVideos(items);
+      console.log(items[0].id);
     } catch (err) {
       console.error(err);
     }
@@ -21,8 +25,10 @@ const VideoContainer = () => {
 
   return (
     <div className="flex flex-wrap">
-      {videos.map((video, index) => (
-        <VideoCard info={video} key={index} />
+      {videos.map((video) => (
+        <Link to={"/watch?v=" + video.id}>
+          <VideoCard info={video} key={video.id} />
+        </Link>
       ))}
     </div>
   );
